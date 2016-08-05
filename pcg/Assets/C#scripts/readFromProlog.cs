@@ -6,15 +6,16 @@ using System.IO;
 public class readFromProlog : MonoBehaviour {
 
     public string pathToFile;
+    string[] section;
 
 	// Use this for initialization
 	void Start () {
+        ReadFromFile();
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        ReadFromFile();
 	
 	}
 
@@ -22,6 +23,15 @@ public class readFromProlog : MonoBehaviour {
         StreamReader reader = new StreamReader("Assets/C#scripts/test.txt");
 
         string s = reader.ReadLine();
-        Debug.Log(s);
+        char delimiter = ',';
+        section = s.Split(delimiter);
+        //char delimiter = ',';
+        //section = s.Split(delimiter);
+        //while (s != null) {
+            //char[] delimiter = { ',' };
+            //section = s.Split(delimiter);
+            //s = reader.ReadLine();
+        //}
+        Debug.Log(section[1]);
     }
 }
